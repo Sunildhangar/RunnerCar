@@ -1,0 +1,178 @@
+You are a senior full-stack engineer.
+
+Your task is to build a complete production-ready **Endless Runner Game** using the following stack:
+
+Frontend: React.js
+Backend: Node.js (Express)
+Database: MongoDB
+
+The project must be structured, scalable, and follow best practices.
+
+---
+
+## 🎯 REQUIREMENTS
+
+### PART 1 — BASIC GAME (Frontend)
+
+Build a fully playable Endless Runner game:
+
+Core Features:
+
+* Character runs automatically
+* Player can jump using keyboard (spacebar) or mouse click
+* Gravity physics must be implemented
+* Obstacles spawn randomly and move toward player
+* Collision detection must end the game
+* Score increases over time
+* Game Over screen with restart option
+
+UI Requirements:
+
+* Clean and responsive UI
+* Game canvas centered
+* Display current score
+* Display high score (from backend later)
+* Smooth animations using requestAnimationFrame
+
+Tech Constraints:
+
+* Use React functional components + hooks
+* Use HTML5 Canvas (preferred) or div-based rendering
+* No external game engines
+
+---
+
+### PART 2 — BACKEND SYSTEM (IMPORTANT)
+
+Build a complete backend system with Node.js + Express.
+
+Features:
+
+1. Player Session System:
+
+* Create anonymous or named player session
+* Generate unique session ID
+* Store session in database
+
+2. Score System:
+
+* Save score after game over
+* Track highest score per player
+* Maintain leaderboard (top 10 scores)
+
+3. Game Config API:
+
+* Provide game difficulty config from backend:
+
+  * obstacle speed
+  * spawn rate
+  * gravity
+* Frontend must fetch and use this config dynamically
+
+4. Resume Game:
+
+* Save last game state (score + timestamp)
+* Allow user to resume last session
+
+5. APIs to implement:
+
+POST /api/session/start
+POST /api/session/end
+POST /api/score
+GET /api/leaderboard
+GET /api/config
+GET /api/session/:id
+
+---
+
+### DATABASE DESIGN (MongoDB)
+
+Design proper schemas:
+
+User / Player:
+
+* _id
+* name (optional)
+* createdAt
+
+Session:
+
+* sessionId
+* playerId
+* startTime
+* endTime
+* score
+* status (active/completed)
+
+Score:
+
+* playerId
+* score
+* createdAt
+
+---
+
+### FRONTEND + BACKEND INTEGRATION
+
+* On game start → create session via API
+* During game → fetch config from backend
+* On game over → send score to backend
+* Fetch leaderboard and display
+* Persist high score
+
+---
+
+### PROJECT STRUCTURE
+
+Create clean folder structure:
+
+/client (React app)
+/server (Node.js app)
+
+Include:
+
+* Controllers
+* Routes
+* Models
+* Services
+* Config files
+
+---
+
+### EXTRA FEATURES (BONUS - if possible)
+
+* Increasing difficulty over time
+* Sound effects
+* Mobile responsiveness
+* Pause/Resume button
+* JWT-based user authentication (optional)
+
+---
+
+### OUTPUT REQUIREMENTS
+
+Provide:
+
+1. Full backend code (Express + MongoDB)
+2. Full frontend code (React)
+3. API integration examples
+4. Step-by-step setup instructions
+5. Environment variables (.env)
+6. Sample test data
+
+---
+
+### IMPORTANT
+
+* Code must be clean, modular, and well-commented
+* Avoid pseudo code — provide real working code
+* Ensure the game is fully functional
+* No missing parts
+
+Start by:
+
+1. Creating backend (Express + MongoDB setup)
+2. Then build frontend (React game)
+3. Then integrate both
+
+Proceed step-by-step and do not skip implementation details.
